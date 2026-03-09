@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instructivo por Categoría · 5.º Festival de Arte Escolaris 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul-cielo:   #5ab4e8;
+    --azul-cielo2:  #87ceeb;
+    --azul-marino:  #1a3a6b;
+    --azul-medio:   #2a5f9e;
+    --naranja:      #e8620a;
+    --naranja-claro:#ff8c3a;
+    --dorado:       #f5c842;
+    --dorado-oscuro:#d4960f;
+    --blanco:       #ffffff;
+    --crema:        #fff8f0;
+    --nube:         #e8f5ff;
+    --texto:        #1a2e45;
+    --texto-suave:  #3a5a7a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(180deg, #c8e8f8 0%, #e8f5ff 30%, #f0faff 60%, #e8f0f8 100%);
+    color: var(--texto);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ─── CLOUDS ─────────────────────────────────────── */
+  .cloud-layer {
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .cloud {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+    filter: blur(28px);
+    animation: driftCloud linear infinite;
+  }
+
+  @keyframes driftCloud {
+    from { transform: translateX(-220px); }
+    to   { transform: translateX(calc(100vw + 220px)); }
+  }
+
+  /* ─── SPARKLES ───────────────────────────────────── */
+  .sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    font-size: 1rem;
+    animation: sparkleFade ease-in-out infinite;
+    opacity: 0;
+  }
+
+  @keyframes sparkleFade {
+    0%,100% { opacity: 0; transform: scale(.5) rotate(0deg); }
+    50%      { opacity: .7; transform: scale(1) rotate(20deg); }
+  }
+
+  /* ─── HERO ───────────────────────────────────────── */
+  .hero {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 3.5rem 1.5rem 2.5rem;
+    background: linear-gradient(180deg,
+      rgba(26,58,107,.92) 0%,
+      rgba(26,58,107,.78) 55%,
+      rgba(26,58,107,.0) 100%);
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(255,255,255,.12);
+    border: 1.5px solid rgba(255,255,255,.3);
+    border-radius: 50px;
+    padding: .38rem 1.3rem;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    margin-bottom: 1.5rem;
+    animation: slideDown .7s ease both;
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-title-wrap {
+    animation: slideDown .8s .1s ease both;
+    margin-bottom: .8rem;
+  }
+
+  .hero-num {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 900;
+    color: rgba(255,255,255,.8);
+    letter-spacing: .15em;
+    display: block;
+    margin-bottom: .2rem;
+  }
+
+  .hero-main {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 7vw, 5rem);
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.05;
+    text-shadow: 0 3px 20px rgba(0,0,0,.3);
+  }
+
+  .hero-main .accent {
+    color: var(--naranja);
+    font-style: italic;
+    text-shadow: 0 0 30px rgba(232,98,10,.45);
+  }
+
+  .hero-year {
+    font-size: clamp(2rem, 6vw, 4.2rem);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    color: var(--dorado);
+    text-shadow: 0 0 25px rgba(245,200,66,.5), 0 3px 8px rgba(0,0,0,.3);
+    display: inline-block;
+    margin-left: .3rem;
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255,255,255,.85);
+    animation: slideDown .9s .2s ease both;
+    margin-bottom: 1.2rem;
+    letter-spacing: .03em;
+  }
+
+  .hero-sub {
+    font-size: .9rem;
+    font-weight: 700;
+    color: rgba(255,255,255,.65);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    animation: slideDown 1s .3s ease both;
+  }
+
+  /* ─── SECTION HEADER ─────────────────────────────── */
+  .section-head {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 3rem 1.5rem 1.2rem;
+  }
+
+  .section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--azul-marino);
+    font-weight: 900;
+  }
+
+  .section-head h2 em {
+    color: var(--naranja);
+    font-style: italic;
+  }
+
+  .section-head p {
+    color: var(--texto-suave);
+    font-size: .95rem;
+    margin-top: .4rem;
+  }
+
+  .divider-gold {
+    width: 70px; height: 4px;
+    background: linear-gradient(90deg, var(--naranja), var(--dorado));
+    border-radius: 99px;
+    margin: .9rem auto 0;
+  }
+
+  /* ─── GRID ───────────────────────────────────────── */
+  .grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 1.6rem;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 0 1.5rem 3rem;
+  }
+
+  /* ─── CARD ───────────────────────────────────────── */
+  .card {
+    background: var(--blanco);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+      0 4px 24px rgba(26,58,107,.10),
+      0 1px 4px rgba(26,58,107,.06);
+    border: 2.5px solid transparent;
+    transition:
+      transform .35s cubic-bezier(.22,1,.36,1),
+      box-shadow .35s ease,
+      border-color .3s ease;
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  .card.visible {
+    animation: cardIn .55s ease forwards;
+  }
+
+  .card:hover {
+    transform: translateY(-7px) scale(1.015);
+    box-shadow:
+      0 18px 48px rgba(26,58,107,.18),
+      0 0 0 2.5px var(--c-accent);
+  }
+
+  /* Frame accent top bar */
+  .card-frame-top {
+    height: 6px;
+    background: linear-gradient(90deg, var(--c-accent), var(--c-accent2, var(--dorado)));
+  }
+
+  .card-header {
+    padding: 1.3rem 1.5rem .9rem;
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--c-accent) 8%, white),
+      rgba(255,255,255,0));
+    display: flex; gap: 1rem; align-items: flex-start;
+    border-bottom: 1px solid rgba(26,58,107,.07);
+  }
+
+  .cat-icon {
+    font-size: 2.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,.15));
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--c-accent) 12%, white),
+      white);
+    border-radius: 14px;
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1.5px solid color-mix(in srgb, var(--c-accent) 20%, white);
+    box-shadow: 0 2px 10px color-mix(in srgb, var(--c-accent) 15%, transparent);
+  }
+
+  .cat-meta { flex: 1; }
+
+  .cat-num {
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+    display: block;
+    margin-bottom: .2rem;
+  }
+
+  .cat-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--azul-marino);
+    line-height: 1.2;
+  }
+
+  .cat-sub {
+    font-size: .73rem;
+    color: var(--texto-suave);
+    margin-top: .2rem;
+    font-style: italic;
+  }
+
+  .card-body {
+    padding: 1.2rem 1.5rem 1.5rem;
+  }
+
+  /* Info blocks */
+  .info-block { margin-bottom: 1rem; }
+
+  .info-label {
+    font-size: .67rem;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+    margin-bottom: .42rem;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .info-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: color-mix(in srgb, var(--c-accent) 18%, transparent);
+  }
+
+  .info-text {
+    font-size: .88rem;
+    color: var(--texto);
+    line-height: 1.6;
+  }
+
+  /* Tags */
+  .tag-list {
+    display: flex; flex-wrap: wrap; gap: .4rem;
+    margin-top: .25rem;
+  }
+
+  .tag {
+    font-size: .75rem;
+    font-weight: 700;
+    padding: .28rem .8rem;
+    border-radius: 50px;
+    background: color-mix(in srgb, var(--c-accent) 8%, white);
+    border: 1.5px solid color-mix(in srgb, var(--c-accent) 22%, white);
+    color: color-mix(in srgb, var(--c-accent) 90%, var(--texto));
+    transition: background .2s, transform .15s;
+  }
+
+  .tag:hover { transform: scale(1.05); }
+
+  .tag.format {
+    background: var(--azul-marino);
+    border-color: var(--azul-marino);
+    color: var(--blanco);
+  }
+
+  .tag.warning {
+    background: #fff0eb;
+    border-color: #f5a080;
+    color: #c04020;
+  }
+
+  .duration-badge {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: linear-gradient(90deg, var(--naranja), var(--naranja-claro));
+    border-radius: 50px;
+    padding: .32rem 1rem;
+    font-size: .8rem;
+    font-weight: 800;
+    color: var(--blanco);
+    margin-top: .3rem;
+    box-shadow: 0 3px 10px rgba(232,98,10,.25);
+  }
+
+  /* Per-card color vars */
+  .c1 { --c-accent:#e8620a; --c-accent2:#f5c842; }
+  .c2 { --c-accent:#1a6fae; --c-accent2:#5ab4e8; }
+  .c3 { --c-accent:#c93c1a; --c-accent2:#f5a040; }
+  .c4 { --c-accent:#2a7aaa; --c-accent2:#5ab4e8; }
+  .c5 { --c-accent:#c07010; --c-accent2:#f5c842; }
+  .c6 { --c-accent:#7a3a9a; --c-accent2:#e8a0e0; }
+  .c7 { --c-accent:#e8620a; --c-accent2:#1a6fae; }
+
+  /* Stagger */
+  .card:nth-child(1){animation-delay:.04s}
+  .card:nth-child(2){animation-delay:.10s}
+  .card:nth-child(3){animation-delay:.16s}
+  .card:nth-child(4){animation-delay:.22s}
+  .card:nth-child(5){animation-delay:.28s}
+  .card:nth-child(6){animation-delay:.34s}
+  .card:nth-child(7){animation-delay:.40s}
+
+  /* ─── DATOS SECTION ──────────────────────────────── */
+  .datos-wrap {
+    position: relative; z-index: 1;
+    max-width: 860px;
+    margin: 0 auto 5rem;
+    padding: 0 1.5rem;
+  }
+
+  .datos-card {
+    background: var(--blanco);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 8px 40px rgba(26,58,107,.14),
+      0 0 0 2.5px rgba(245,200,66,.4);
+  }
+
+  .datos-header {
+    background: linear-gradient(100deg, var(--azul-marino) 0%, var(--azul-medio) 100%);
+    padding: 1.5rem 2rem;
+    display: flex; align-items: center; gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .datos-header::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--naranja), var(--dorado));
+  }
+
+  .datos-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--blanco);
+  }
+
+  .datos-header p {
+    font-size: .82rem;
+    color: rgba(255,255,255,.65);
+    margin-top: .2rem;
+  }
+
+  .datos-body {
+    padding: 1.8rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .8rem;
+  }
+
+  @media (max-width: 540px) {
+    .datos-body { grid-template-columns: 1fr; }
+  }
+
+  .dato-item {
+    display: flex; align-items: center; gap: .85rem;
+    padding: .9rem 1.1rem;
+    border-radius: 14px;
+    background: var(--nube);
+    border: 1.5px solid rgba(90,180,232,.2);
+    transition: background .25s, transform .25s, border-color .25s;
+  }
+
+  .dato-item:hover {
+    background: color-mix(in srgb, var(--naranja) 7%, white);
+    border-color: rgba(232,98,10,.3);
+    transform: translateX(5px);
+  }
+
+  .dato-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--naranja), var(--dorado));
+    color: var(--blanco);
+    font-size: .75rem;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(232,98,10,.3);
+  }
+
+  .dato-text {
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--azul-marino);
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────── */
+  footer {
+    position: relative; z-index: 1;
+    background: var(--azul-marino);
+    text-align: center;
+    padding: 2.2rem 1.5rem;
+    color: rgba(255,255,255,.55);
+    font-size: .82rem;
+  }
+
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--blanco);
+    font-weight: 900;
+    margin-bottom: .4rem;
+  }
+
+  footer .footer-logo span { color: var(--naranja); }
+
+  footer .footer-tag {
+    font-style: italic;
+    color: rgba(255,255,255,.4);
+    font-size: .78rem;
+    margin-top: .3rem;
+  }
+
+  footer .footer-line {
+    width: 50px; height: 3px;
+    background: linear-gradient(90deg, var(--naranja), var(--dorado));
+    border-radius: 99px;
+    margin: .8rem auto;
+  }
+
+  /* ─── ANIMATIONS ─────────────────────────────────── */
+  @keyframes slideDown {
+    from { opacity:0; transform: translateY(-18px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  @keyframes cardIn {
+    from { opacity:0; transform: translateY(28px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0px); }
+    50%      { transform: translateY(-8px); }
+  }
+
+  /* Scroll hint */
+  .scroll-hint {
+    display: flex; flex-direction: column; align-items: center;
+    gap: .35rem;
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    animation: float 2s ease-in-out infinite;
+  }
+
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── CLOUD BG ──────────────────────────────────────────── -->
+<div class="cloud-layer" id="clouds"></div>
+
+<!-- ─── SPARKLES ─────────────────────────────────────────── -->
+<div id="sparkles"></div>
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-badge">✦ Convocatoria de participación ✦</div>
+
+  <div class="hero-title-wrap">
+    <span class="hero-num">5.º</span>
+    <div class="hero-main">
+      Festival de <span class="accent">Arte</span> ESCOLARIS<span class="hero-year">2026</span>
+    </div>
+  </div>
+
+  <p class="hero-tagline">"Entre luces y pantallas, museo sin muros"</p>
+  <p class="hero-sub">Modalidad en línea · Instructivo por Categoría</p>
+
+  <div class="scroll-hint">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+         stroke="rgba(255,255,255,.6)" stroke-width="2.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+    EXPLORAR
+  </div>
+</section>
+
+<!-- ─── SECTION HEADER ────────────────────────────────────── -->
+<div class="section-head">
+  <h2>Las <em>7 Categorías</em> del Festival</h2>
+  <p>Elige la que mejor exprese tu voz artística y créala con libertad</p>
+  <div class="divider-gold"></div>
+</div>
+
+<!-- ─── CARDS GRID ────────────────────────────────────────── -->
+<div class="grid">
+
+  <!-- 1 · Artes Visuales -->
+  <article class="card c1">
+    <div class="card-frame-top"></div>
+    <div class="card-header">
+      <div class="cat-icon">🎨</div>
+      <div class="cat-meta">
+        <span class="cat-num">Categoría 01</span>
+        <div class="cat-name">Artes Visuales</div>
+        <div class="cat-sub">Dibujo · Pintura · Collage · Fotografía · Ilustración digital</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="info-block">
+        <div class="info-label">¿Qué crear?</div>
+        <p class="info-text">Una obra visual <strong>original hecha por ti</strong>, en papel o digitalmente.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">¿Cómo hacerla?</div>
+        <div class="tag-list">
+          <span class="tag">📸 Fotografía del proceso</span>
+          <span class="tag">⚡ Video time-lapse</span>
+          <span class="tag">🖼️ Alta calidad digital</span>
+          <span class="tag">☀️ Buena iluminación</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Formatos de entrega</div>
+        <div class="tag-list">
+          <span class="tag format">JPG · PNG</span>
+          <span class="tag format">MP3 · MP4 · WAV</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Debe incluir</div>
+        <div class="tag-list">
+          <span class="tag">Título</span>
+          <span class="tag">Tu nombre</span>
+          <span class="tag">Grado</span>
+          <span class="tag">Explicación ≤ 100 palabras</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 2 · Videoarte -->
+  <article class="card c2">
+    <div class="card-frame-top"></div>
+    <div class="card-header">
+      <div class="cat-icon">🎬</div>
+      <div class="cat-meta">
+        <span class="cat-num">Categoría 02</span>
+        <div class="cat-name">Videoarte</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="info-block">
+        <div class="info-label">¿Qué crear?</div>
+        <p class="info-text">Un video artístico que exprese una <strong>idea, emoción o concepto</strong>. No es un cortometraje tradicional.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Herramientas</div>
+        <div class="tag-list">
+          <span class="tag">📱 Celular</span>
+          <span class="tag">📷 Cámara</span>
+          <span class="tag">🖥️ Prog. de edición</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Combina elementos</div>
+        <div class="tag-list">
+          <span class="tag">Imagen</span>
+          <span class="tag">Movimiento</span>
+          <span class="tag">Sonido</span>
+          <span class="tag">Texto (opcional)</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Duración &amp; Formato</div>
+        <div class="duration-badge">⏱ 1 – 3 minutos</div>
+        <div class="tag-list" style="margin-top:.5rem">
+          <span class="tag format">Video MP4</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 3 · Animación -->
+  <article class="card c3">
+    <div class="card-frame-top"></div>
+    <div class="card-header">
+      <div class="cat-icon">✨</div>
+      <div class="cat-meta">
+        <span class="cat-num">Categoría 03</span>
+        <div class="cat-name">Animación</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="info-block">
+        <div class="info-label">¿Qué crear?</div>
+        <p class="info-text">Un <strong>video animado original</strong> con una historia simple y creativa.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Técnicas permitidas</div>
+        <div class="tag-list">
+          <span class="tag">Stop motion</span>
+          <span class="tag">Dibujo animado</span>
+          <span class="tag">Animación digital</span>
+          <span class="tag">Recortes</span>
+          <span class="tag">Modelos</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Requisito mínimo</div>
+        <p class="info-text">Usa al menos <strong>20 imágenes o cuadros</strong>.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Duración &amp; Formato</div>
+        <div class="duration-badge">⏱ 30 seg – 2 min</div>
+        <div class="tag-list" style="margin-top:.5rem">
+          <span class="tag format">MP4</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 4 · Performance Grabado -->
+  <article class="card c4">
+    <div class="card-frame-top"></div>
+    <div class="card-header">
+      <div class="cat-icon">🎭</div>
+      <div class="cat-meta">
+        <span class="cat-num">Categoría 04</span>
+        <div class="cat-name">Performance Grabado</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="info-block">
+        <div class="info-label">¿Qué crear?</div>
+        <p class="info-text">Una <strong>acción artística grabada</strong> en video donde tú eres parte de la obra.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Ejemplos de acciones</div>
+        <div class="tag-list">
+          <span class="tag">Movimiento corporal</span>
+          <span class="tag">Repr. simbólica</span>
+          <span class="tag">Uso de objetos</span>
+          <span class="tag">Acciones repetitivas</span>
+          <span class="tag">Gestos</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Reglas importantes</div>
+        <div class="tag-list">
+          <span class="tag warning">⚠ No peligrosa</span>
+          <span class="tag warning">⚠ No violenta</span>
+          <span class="tag">✔ Con significado</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Duración &amp; Formato</div>
+        <div class="duration-badge">⏱ 1 – 3 minutos</div>
+        <div class="tag-list" style="margin-top:.5rem">
+          <span class="tag format">Video MP4</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 5 · Arte Sonoro -->
+  <article class="card c5">
+    <div class="card-frame-top"></div>
+    <div class="card-header">
+      <div class="cat-icon">🎵</div>
+      <div class="cat-meta">
+        <span class="cat-num">Categoría 05</span>
+        <div class="cat-name">Arte Sonoro</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="info-block">
+        <div class="info-label">¿Qué crear?</div>
+        <p class="info-text">Una <strong>obra basada en sonidos</strong> que explore la escucha de forma artística.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Puede incluir</div>
+        <div class="tag-list">
+          <span class="tag">Voz</span>
+          <span class="tag">Ruidos</span>
+          <span class="tag">Música propia</span>
+          <span class="tag">Sonidos del entorno</span>
+          <span class="tag">Mezclas</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">No se permite</div>
+        <div class="tag-list">
+          <span class="tag warning">🚫 Música comercial con derechos de autor</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Duración &amp; Formato</div>
+        <div class="duration-badge">⏱ 1 – 3 minutos</div>
+        <div class="tag-list" style="margin-top:.5rem">
+          <span class="tag format">MP3 · WAV</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 6 · Poesía Visual -->
+  <article class="card c6">
+    <div class="card-frame-top"></div>
+    <div class="card-header">
+      <div class="cat-icon">📝</div>
+      <div class="cat-meta">
+        <span class="cat-num">Categoría 06</span>
+        <div class="cat-name">Poesía Visual</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="info-block">
+        <div class="info-label">¿Qué crear?</div>
+        <p class="info-text">Una obra que <strong>combine texto e imagen</strong> de forma artística y expresiva.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Puede ser</div>
+        <div class="tag-list">
+          <span class="tag">Poema con ilustración</span>
+          <span class="tag">Frase + composición gráfica</span>
+          <span class="tag">Letras que forman imágenes</span>
+          <span class="tag">Palabras integradas al dibujo</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Formatos</div>
+        <div class="tag-list">
+          <span class="tag format">JPG · PNG (proceso)</span>
+          <span class="tag format">MP4 (time-lapse)</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 7 · Obras Interdisciplinarias -->
+  <article class="card c7">
+    <div class="card-frame-top"></div>
+    <div class="card-header">
+      <div class="cat-icon">🌐</div>
+      <div class="cat-meta">
+        <span class="cat-num">Categoría 07</span>
+        <div class="cat-name">Obras Interdisciplinarias</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="info-block">
+        <div class="info-label">¿Qué crear?</div>
+        <p class="info-text">Una obra que mezcle <strong>dos o más lenguajes artísticos</strong> en una sola pieza.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Ejemplos de combinaciones</div>
+        <div class="tag-list">
+          <span class="tag">Dibujo + Audio</span>
+          <span class="tag">Texto + Animación</span>
+          <span class="tag">Video + Poesía</span>
+          <span class="tag">Imagen + Música</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Formatos</div>
+        <div class="tag-list">
+          <span class="tag format">Video</span>
+          <span class="tag format">Multimedia interactivo</span>
+          <span class="tag format">Enlace digital</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</div><!-- /grid -->
+
+<!-- ─── DATOS OBLIGATORIOS ────────────────────────────────── -->
+<div class="section-head">
+  <h2>Datos <em>Obligatorios</em></h2>
+  <p>Cada obra debe enviarse con la siguiente información</p>
+  <div class="divider-gold"></div>
+</div>
+
+<section class="datos-wrap">
+  <div class="datos-card">
+    <div class="datos-header">
+      <span style="font-size:2rem">📋</span>
+      <div>
+        <h3>Información Requerida para Todas las Obras</h3>
+        <p>Sin excepción, sin importar la categoría elegida</p>
+      </div>
+    </div>
+    <div class="datos-body">
+      <div class="dato-item"><div class="dato-num">1</div><span class="dato-text">Título de la obra</span></div>
+      <div class="dato-item"><div class="dato-num">2</div><span class="dato-text">Nombre del estudiante</span></div>
+      <div class="dato-item"><div class="dato-num">3</div><span class="dato-text">Grado</span></div>
+      <div class="dato-item"><div class="dato-num">4</div><span class="dato-text">Categoría</span></div>
+      <div class="dato-item"><div class="dato-num">5</div><span class="dato-text">Breve explicación (máx. 100 palabras)</span></div>
+      <div class="dato-item"><div class="dato-num">6</div><span class="dato-text">Eje temático</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-logo"><span>Colegio</span> Escolaris</div>
+  <div class="footer-line"></div>
+  <div>5.º Festival de Arte Escolaris 2026 · Modalidad en Línea</div>
+  <div class="footer-tag">"Entre luces y pantallas, museo sin muros" · 28 de abril 2026</div>
+</footer>
+
+<!-- ─── SCRIPTS ───────────────────────────────────────────── -->
+<script>
+// ── Clouds ──────────────────────────────────────────────────
+(function(){
+  const layer = document.getElementById('clouds');
+  const configs = [
+    {w:260,h:90,top:'8%',dur:38,delay:0,opacity:.6},
+    {w:180,h:65,top:'20%',dur:52,delay:-15,opacity:.45},
+    {w:320,h:100,top:'5%',dur:44,delay:-28,opacity:.5},
+    {w:140,h:55,top:'35%',dur:60,delay:-8,opacity:.35},
+    {w:200,h:75,top:'15%',dur:34,delay:-40,opacity:.55},
+    {w:100,h:42,top:'28%',dur:48,delay:-22,opacity:.3},
+  ];
+  configs.forEach(c => {
+    const el = document.createElement('div');
+    el.className = 'cloud';
+    el.style.cssText = `
+      width:${c.w}px; height:${c.h}px;
+      top:${c.top};
+      animation-duration:${c.dur}s;
+      animation-delay:${c.delay}s;
+      opacity:${c.opacity};
+    `;
+    layer.appendChild(el);
+  });
+})();
+
+// ── Sparkles ────────────────────────────────────────────────
+(function(){
+  const container = document.getElementById('sparkles');
+  const chars = ['✦','✧','★','✩','⭐','💫'];
+  for(let i=0;i<18;i++){
+    const el = document.createElement('div');
+    el.className = 'sparkle';
+    el.textContent = chars[Math.floor(Math.random()*chars.length)];
+    el.style.cssText = `
+      left:${Math.random()*100}vw;
+      top:${Math.random()*80}vh;
+      animation-duration:${2.5+Math.random()*3.5}s;
+      animation-delay:${Math.random()*4}s;
+      font-size:${.7+Math.random()*.8}rem;
+      color:${Math.random()>.5?'rgba(245,200,66,.6)':'rgba(232,98,10,.45)'};
+    `;
+    container.appendChild(el);
+  }
+})();
+
+// ── Scroll reveal ────────────────────────────────────────────
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, {threshold:.08});
+
+document.querySelectorAll('.card').forEach(c => io.observe(c));
+</script>
+</body>
+</html>
