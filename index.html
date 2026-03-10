@@ -33,43 +33,34 @@
     min-height: 100vh;
   }
 
-  /* ─── CLOUDS ─────────────────────────────────────── */
+  /* ─── CLOUDS ──────────────────────────────── */
   .cloud-layer {
     position: fixed; inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
+    pointer-events: none; z-index: 0; overflow: hidden;
   }
-
   .cloud {
-    position: absolute;
-    border-radius: 50%;
+    position: absolute; border-radius: 50%;
     background: rgba(255,255,255,0.55);
     filter: blur(28px);
     animation: driftCloud linear infinite;
   }
-
   @keyframes driftCloud {
     from { transform: translateX(-220px); }
     to   { transform: translateX(calc(100vw + 220px)); }
   }
 
-  /* ─── SPARKLES ───────────────────────────────────── */
+  /* ─── SPARKLES ────────────────────────────── */
   .sparkle {
-    position: fixed;
-    pointer-events: none;
-    z-index: 0;
+    position: fixed; pointer-events: none; z-index: 0;
     font-size: 1rem;
-    animation: sparkleFade ease-in-out infinite;
-    opacity: 0;
+    animation: sparkleFade ease-in-out infinite; opacity: 0;
   }
-
   @keyframes sparkleFade {
     0%,100% { opacity: 0; transform: scale(.5) rotate(0deg); }
     50%      { opacity: .7; transform: scale(1) rotate(20deg); }
   }
 
-  /* ─── HERO ───────────────────────────────────────── */
+  /* ─── HERO ────────────────────────────────── */
   .hero {
     position: relative; z-index: 1;
     text-align: center;
@@ -79,279 +70,195 @@
       rgba(26,58,107,.78) 55%,
       rgba(26,58,107,.0) 100%);
   }
-
   .hero-badge {
     display: inline-flex; align-items: center; gap: .5rem;
     background: rgba(255,255,255,.12);
     border: 1.5px solid rgba(255,255,255,.3);
     border-radius: 50px;
     padding: .38rem 1.3rem;
-    font-size: .72rem;
-    font-weight: 800;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--dorado);
-    margin-bottom: 1.5rem;
+    font-size: .72rem; font-weight: 800;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 1.5rem;
     animation: slideDown .7s ease both;
     backdrop-filter: blur(6px);
   }
-
-  .hero-title-wrap {
-    animation: slideDown .8s .1s ease both;
-    margin-bottom: .8rem;
-  }
-
+  .hero-title-wrap { animation: slideDown .8s .1s ease both; margin-bottom: .8rem; }
   .hero-num {
     font-family: 'Nunito', sans-serif;
-    font-size: clamp(1rem, 3vw, 1.3rem);
-    font-weight: 900;
-    color: rgba(255,255,255,.8);
-    letter-spacing: .15em;
-    display: block;
-    margin-bottom: .2rem;
+    font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 900;
+    color: rgba(255,255,255,.8); letter-spacing: .15em;
+    display: block; margin-bottom: .2rem;
   }
-
   .hero-main {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 7vw, 5rem);
-    font-weight: 900;
-    color: var(--blanco);
-    line-height: 1.05;
+    font-size: clamp(2.2rem, 7vw, 5rem); font-weight: 900;
+    color: var(--blanco); line-height: 1.05;
     text-shadow: 0 3px 20px rgba(0,0,0,.3);
   }
-
   .hero-main .accent {
-    color: var(--naranja);
-    font-style: italic;
+    color: var(--naranja); font-style: italic;
     text-shadow: 0 0 30px rgba(232,98,10,.45);
   }
-
   .hero-year {
     font-size: clamp(2rem, 6vw, 4.2rem);
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
+    font-family: 'Nunito', sans-serif; font-weight: 900;
     color: var(--dorado);
     text-shadow: 0 0 25px rgba(245,200,66,.5), 0 3px 8px rgba(0,0,0,.3);
-    display: inline-block;
-    margin-left: .3rem;
+    display: inline-block; margin-left: .3rem;
   }
-
   .hero-tagline {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    color: rgba(255,255,255,.85);
-    animation: slideDown .9s .2s ease both;
-    margin-bottom: 1.2rem;
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem); color: rgba(255,255,255,.85);
+    animation: slideDown .9s .2s ease both; margin-bottom: 1.2rem;
     letter-spacing: .03em;
   }
-
   .hero-sub {
-    font-size: .9rem;
-    font-weight: 700;
-    color: rgba(255,255,255,.65);
-    letter-spacing: .12em;
-    text-transform: uppercase;
+    font-size: .9rem; font-weight: 700; color: rgba(255,255,255,.65);
+    letter-spacing: .12em; text-transform: uppercase;
     animation: slideDown 1s .3s ease both;
   }
 
-  /* ─── SECTION HEADER ─────────────────────────────── */
+  /* ─── SECTION HEADER ──────────────────────── */
   .section-head {
     position: relative; z-index: 1;
-    text-align: center;
-    padding: 3rem 1.5rem 1.2rem;
+    text-align: center; padding: 3rem 1.5rem 1.2rem;
   }
-
   .section-head h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-    color: var(--azul-marino);
-    font-weight: 900;
+    font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--azul-marino); font-weight: 900;
   }
-
-  .section-head h2 em {
-    color: var(--naranja);
-    font-style: italic;
-  }
-
-  .section-head p {
-    color: var(--texto-suave);
-    font-size: .95rem;
-    margin-top: .4rem;
-  }
-
+  .section-head h2 em { color: var(--naranja); font-style: italic; }
+  .section-head p { color: var(--texto-suave); font-size: .95rem; margin-top: .4rem; }
   .divider-gold {
     width: 70px; height: 4px;
     background: linear-gradient(90deg, var(--naranja), var(--dorado));
-    border-radius: 99px;
-    margin: .9rem auto 0;
+    border-radius: 99px; margin: .9rem auto 0;
   }
 
-  /* ─── GRID ───────────────────────────────────────── */
+  /* ─── GRID ────────────────────────────────── */
   .grid {
     position: relative; z-index: 1;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
     gap: 1.6rem;
-    max-width: 1200px;
-    margin: 2rem auto 0;
+    max-width: 1200px; margin: 2rem auto 0;
     padding: 0 1.5rem 3rem;
   }
 
-  /* ─── CARD ───────────────────────────────────────── */
+  /* ─── CARD ────────────────────────────────── */
   .card {
-    background: var(--blanco);
-    border-radius: 20px;
+    background: var(--blanco); border-radius: 20px;
     overflow: hidden;
-    box-shadow:
-      0 4px 24px rgba(26,58,107,.10),
-      0 1px 4px rgba(26,58,107,.06);
+    box-shadow: 0 4px 24px rgba(26,58,107,.10), 0 1px 4px rgba(26,58,107,.06);
     border: 2.5px solid transparent;
-    transition:
-      transform .35s cubic-bezier(.22,1,.36,1),
-      box-shadow .35s ease,
-      border-color .3s ease;
-    opacity: 0;
-    transform: translateY(28px);
+    transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .3s ease;
+    opacity: 0; transform: translateY(28px);
   }
-
-  .card.visible {
-    animation: cardIn .55s ease forwards;
-  }
-
+  .card.visible { animation: cardIn .55s ease forwards; }
   .card:hover {
     transform: translateY(-7px) scale(1.015);
-    box-shadow:
-      0 18px 48px rgba(26,58,107,.18),
-      0 0 0 2.5px var(--c-accent);
+    box-shadow: 0 18px 48px rgba(26,58,107,.18), 0 0 0 2.5px var(--c-accent);
   }
-
-  /* Frame accent top bar */
   .card-frame-top {
     height: 6px;
     background: linear-gradient(90deg, var(--c-accent), var(--c-accent2, var(--dorado)));
   }
-
   .card-header {
     padding: 1.3rem 1.5rem .9rem;
-    background: linear-gradient(135deg,
-      color-mix(in srgb, var(--c-accent) 8%, white),
-      rgba(255,255,255,0));
-    display: flex; gap: 1rem; align-items: flex-start;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--c-accent) 8%, white), rgba(255,255,255,0));
     border-bottom: 1px solid rgba(26,58,107,.07);
+    display: flex; gap: 1rem; align-items: flex-start;
   }
-
   .cat-icon {
-    font-size: 2.6rem;
-    line-height: 1;
-    flex-shrink: 0;
+    font-size: 2.6rem; line-height: 1; flex-shrink: 0;
     filter: drop-shadow(0 2px 6px rgba(0,0,0,.15));
-    background: linear-gradient(135deg,
-      color-mix(in srgb, var(--c-accent) 12%, white),
-      white);
-    border-radius: 14px;
-    width: 60px; height: 60px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--c-accent) 12%, white), white);
+    border-radius: 14px; width: 60px; height: 60px;
     display: flex; align-items: center; justify-content: center;
     border: 1.5px solid color-mix(in srgb, var(--c-accent) 20%, white);
     box-shadow: 0 2px 10px color-mix(in srgb, var(--c-accent) 15%, transparent);
   }
-
   .cat-meta { flex: 1; }
-
   .cat-num {
-    font-size: .68rem;
-    font-weight: 900;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--c-accent);
-    display: block;
-    margin-bottom: .2rem;
+    font-size: .68rem; font-weight: 900; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--c-accent); display: block; margin-bottom: .2rem;
   }
-
   .cat-name {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--azul-marino);
-    line-height: 1.2;
+    font-size: 1.2rem; font-weight: 700; color: var(--azul-marino); line-height: 1.2;
   }
+  .cat-sub { font-size: .73rem; color: var(--texto-suave); margin-top: .2rem; font-style: italic; }
 
-  .cat-sub {
-    font-size: .73rem;
-    color: var(--texto-suave);
-    margin-top: .2rem;
-    font-style: italic;
-  }
-
-  .card-body {
-    padding: 1.2rem 1.5rem 1.5rem;
-  }
-
-  /* Info blocks */
+  .card-body { padding: 1.2rem 1.5rem 1.5rem; }
   .info-block { margin-bottom: 1rem; }
-
   .info-label {
-    font-size: .67rem;
-    font-weight: 900;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--c-accent);
-    margin-bottom: .42rem;
-    display: flex; align-items: center; gap: .5rem;
+    font-size: .67rem; font-weight: 900; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--c-accent);
+    margin-bottom: .42rem; display: flex; align-items: center; gap: .5rem;
   }
-  .info-label::after {
-    content: '';
-    flex: 1; height: 1px;
-    background: color-mix(in srgb, var(--c-accent) 18%, transparent);
-  }
-
-  .info-text {
-    font-size: .88rem;
-    color: var(--texto);
-    line-height: 1.6;
-  }
+  .info-label::after { content: ''; flex: 1; height: 1px; background: color-mix(in srgb, var(--c-accent) 18%, transparent); }
+  .info-text { font-size: .88rem; color: var(--texto); line-height: 1.6; }
 
   /* Tags */
-  .tag-list {
-    display: flex; flex-wrap: wrap; gap: .4rem;
-    margin-top: .25rem;
-  }
-
+  .tag-list { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .25rem; }
   .tag {
-    font-size: .75rem;
-    font-weight: 700;
-    padding: .28rem .8rem;
+    font-size: .75rem; font-weight: 700; padding: .28rem .8rem;
     border-radius: 50px;
     background: color-mix(in srgb, var(--c-accent) 8%, white);
     border: 1.5px solid color-mix(in srgb, var(--c-accent) 22%, white);
     color: color-mix(in srgb, var(--c-accent) 90%, var(--texto));
     transition: background .2s, transform .15s;
   }
-
   .tag:hover { transform: scale(1.05); }
-
-  .tag.format {
-    background: var(--azul-marino);
-    border-color: var(--azul-marino);
-    color: var(--blanco);
-  }
-
-  .tag.warning {
-    background: #fff0eb;
-    border-color: #f5a080;
-    color: #c04020;
-  }
+  .tag.format { background: var(--azul-marino); border-color: var(--azul-marino); color: var(--blanco); }
+  .tag.warning { background: #fff0eb; border-color: #f5a080; color: #c04020; }
+  .tag.tiktok { background: #e8f0ff; border-color: #90a8e8; color: #2a3a9a; }
 
   .duration-badge {
     display: inline-flex; align-items: center; gap: .4rem;
     background: linear-gradient(90deg, var(--naranja), var(--naranja-claro));
-    border-radius: 50px;
-    padding: .32rem 1rem;
-    font-size: .8rem;
-    font-weight: 800;
-    color: var(--blanco);
-    margin-top: .3rem;
-    box-shadow: 0 3px 10px rgba(232,98,10,.25);
+    border-radius: 50px; padding: .32rem 1rem;
+    font-size: .8rem; font-weight: 800; color: var(--blanco);
+    margin-top: .3rem; box-shadow: 0 3px 10px rgba(232,98,10,.25);
+  }
+
+  /* Subcategory accordion */
+  .subcat-list { margin-top: .4rem; display: flex; flex-direction: column; gap: .45rem; }
+  .subcat-item {
+    border: 1.5px solid color-mix(in srgb, var(--c-accent) 18%, white);
+    border-radius: 10px; overflow: hidden;
+  }
+  .subcat-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .55rem .85rem;
+    background: color-mix(in srgb, var(--c-accent) 6%, white);
+    cursor: pointer;
+    font-size: .82rem; font-weight: 800; color: var(--azul-marino);
+    user-select: none; transition: background .2s;
+  }
+  .subcat-header:hover { background: color-mix(in srgb, var(--c-accent) 12%, white); }
+  .subcat-header .arrow {
+    font-size: .65rem; color: var(--c-accent);
+    transition: transform .3s; display: inline-block;
+  }
+  .subcat-header.open .arrow { transform: rotate(180deg); }
+  .subcat-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s ease, padding .3s ease;
+    padding: 0 .85rem;
+    background: white;
+  }
+  .subcat-body.open { max-height: 400px; padding: .5rem .85rem .7rem; }
+  .subcat-body ul { padding-left: 1rem; }
+  .subcat-body ul li { font-size: .82rem; color: var(--texto); line-height: 1.7; }
+  .subcat-body ul li ul { margin-top: .15rem; }
+  .subcat-body .note {
+    font-size: .76rem; color: var(--texto-suave);
+    font-style: italic; margin-top: .4rem;
+    padding: .35rem .6rem;
+    background: color-mix(in srgb, var(--c-accent) 5%, white);
+    border-left: 3px solid var(--c-accent);
+    border-radius: 0 6px 6px 0;
   }
 
   /* Per-card color vars */
@@ -362,8 +269,8 @@
   .c5 { --c-accent:#c07010; --c-accent2:#f5c842; }
   .c6 { --c-accent:#7a3a9a; --c-accent2:#e8a0e0; }
   .c7 { --c-accent:#e8620a; --c-accent2:#1a6fae; }
+  .c8 { --c-accent:#4a8a3a; --c-accent2:#a0d070; }
 
-  /* Stagger */
   .card:nth-child(1){animation-delay:.04s}
   .card:nth-child(2){animation-delay:.10s}
   .card:nth-child(3){animation-delay:.16s}
@@ -371,187 +278,165 @@
   .card:nth-child(5){animation-delay:.28s}
   .card:nth-child(6){animation-delay:.34s}
   .card:nth-child(7){animation-delay:.40s}
+  .card:nth-child(8){animation-delay:.46s}
 
-  /* ─── DATOS SECTION ──────────────────────────────── */
+  /* ─── DATOS SECTION ───────────────────────── */
   .datos-wrap {
     position: relative; z-index: 1;
-    max-width: 860px;
-    margin: 0 auto 5rem;
-    padding: 0 1.5rem;
+    max-width: 940px; margin: 0 auto 2rem; padding: 0 1.5rem;
   }
-
   .datos-card {
-    background: var(--blanco);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow:
-      0 8px 40px rgba(26,58,107,.14),
-      0 0 0 2.5px rgba(245,200,66,.4);
+    background: var(--blanco); border-radius: 24px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(26,58,107,.14), 0 0 0 2.5px rgba(245,200,66,.4);
+    margin-bottom: 1.5rem;
   }
-
   .datos-header {
     background: linear-gradient(100deg, var(--azul-marino) 0%, var(--azul-medio) 100%);
-    padding: 1.5rem 2rem;
+    padding: 1.4rem 2rem;
     display: flex; align-items: center; gap: 1rem;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
-
   .datos-header::before {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
     background: linear-gradient(90deg, var(--naranja), var(--dorado));
   }
-
   .datos-header h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: var(--blanco);
+    font-size: 1.3rem; font-weight: 900; color: var(--blanco);
   }
-
-  .datos-header p {
-    font-size: .82rem;
-    color: rgba(255,255,255,.65);
-    margin-top: .2rem;
-  }
+  .datos-header p { font-size: .82rem; color: rgba(255,255,255,.65); margin-top: .2rem; }
 
   .datos-body {
     padding: 1.8rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: .8rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: .8rem;
   }
-
-  @media (max-width: 540px) {
-    .datos-body { grid-template-columns: 1fr; }
-  }
-
+  @media (max-width: 540px) { .datos-body { grid-template-columns: 1fr; } }
   .dato-item {
     display: flex; align-items: center; gap: .85rem;
-    padding: .9rem 1.1rem;
-    border-radius: 14px;
-    background: var(--nube);
-    border: 1.5px solid rgba(90,180,232,.2);
+    padding: .9rem 1.1rem; border-radius: 14px;
+    background: var(--nube); border: 1.5px solid rgba(90,180,232,.2);
     transition: background .25s, transform .25s, border-color .25s;
   }
-
   .dato-item:hover {
     background: color-mix(in srgb, var(--naranja) 7%, white);
-    border-color: rgba(232,98,10,.3);
-    transform: translateX(5px);
+    border-color: rgba(232,98,10,.3); transform: translateX(5px);
   }
-
   .dato-num {
-    width: 28px; height: 28px;
-    border-radius: 50%;
+    width: 28px; height: 28px; border-radius: 50%;
     background: linear-gradient(135deg, var(--naranja), var(--dorado));
-    color: var(--blanco);
-    font-size: .75rem;
-    font-weight: 900;
+    color: var(--blanco); font-size: .75rem; font-weight: 900;
     display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(232,98,10,.3);
+    flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,98,10,.3);
   }
+  .dato-text { font-size: .9rem; font-weight: 700; color: var(--azul-marino); }
 
-  .dato-text {
-    font-size: .9rem;
-    font-weight: 700;
+  /* Notes / extra info boxes */
+  .info-box {
+    border-radius: 14px; padding: 1.1rem 1.4rem; margin-bottom: 1rem;
+    border-left: 4px solid var(--azul-cielo);
+    background: var(--nube);
+  }
+  .info-box.warning-box {
+    border-left-color: var(--naranja);
+    background: #fff5ee;
+  }
+  .info-box.green-box {
+    border-left-color: #4a8a3a;
+    background: #f0f9ec;
+  }
+  .info-box h4 {
+    font-size: .8rem; font-weight: 900; letter-spacing: .12em;
+    text-transform: uppercase; margin-bottom: .55rem;
     color: var(--azul-marino);
   }
+  .info-box h4.orange { color: var(--naranja); }
+  .info-box h4.green { color: #3a7a2a; }
+  .info-box ul { padding-left: 1.1rem; }
+  .info-box ul li { font-size: .86rem; color: var(--texto); line-height: 1.75; }
+  .info-box p { font-size: .86rem; color: var(--texto); line-height: 1.65; }
 
-  /* ─── FOOTER ─────────────────────────────────────── */
+  /* Criterios section */
+  .criterios-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    padding: 1.5rem 2rem 2rem;
+  }
+  @media (max-width: 600px) { .criterios-grid { grid-template-columns: 1fr; } }
+  .criterio-card {
+    background: var(--nube); border-radius: 14px;
+    padding: 1rem 1.2rem;
+    border: 1.5px solid rgba(90,180,232,.2);
+    transition: transform .2s, border-color .2s;
+  }
+  .criterio-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(232,98,10,.3);
+  }
+  .criterio-icon { font-size: 1.6rem; margin-bottom: .4rem; }
+  .criterio-title {
+    font-size: .82rem; font-weight: 900; color: var(--azul-marino);
+    text-transform: uppercase; letter-spacing: .08em; margin-bottom: .35rem;
+  }
+  .criterio-text { font-size: .82rem; color: var(--texto-suave); line-height: 1.6; }
+
+  /* ─── FOOTER ──────────────────────────────── */
   footer {
     position: relative; z-index: 1;
     background: var(--azul-marino);
-    text-align: center;
-    padding: 2.2rem 1.5rem;
-    color: rgba(255,255,255,.55);
-    font-size: .82rem;
+    text-align: center; padding: 2.2rem 1.5rem;
+    color: rgba(255,255,255,.55); font-size: .82rem;
   }
-
   footer .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--blanco);
-    font-weight: 900;
-    margin-bottom: .4rem;
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    color: var(--blanco); font-weight: 900; margin-bottom: .4rem;
   }
-
   footer .footer-logo span { color: var(--naranja); }
-
-  footer .footer-tag {
-    font-style: italic;
-    color: rgba(255,255,255,.4);
-    font-size: .78rem;
-    margin-top: .3rem;
-  }
-
+  footer .footer-tag { font-style: italic; color: rgba(255,255,255,.4); font-size: .78rem; margin-top: .3rem; }
   footer .footer-line {
     width: 50px; height: 3px;
     background: linear-gradient(90deg, var(--naranja), var(--dorado));
-    border-radius: 99px;
-    margin: .8rem auto;
+    border-radius: 99px; margin: .8rem auto;
   }
 
-  /* ─── ANIMATIONS ─────────────────────────────────── */
+  /* ─── ANIMATIONS ──────────────────────────── */
   @keyframes slideDown {
     from { opacity:0; transform: translateY(-18px); }
     to   { opacity:1; transform: translateY(0); }
   }
-
   @keyframes cardIn {
     from { opacity:0; transform: translateY(28px); }
     to   { opacity:1; transform: translateY(0); }
   }
-
   @keyframes float {
     0%,100% { transform: translateY(0px); }
     50%      { transform: translateY(-8px); }
   }
-
-  /* Scroll hint */
   .scroll-hint {
     display: flex; flex-direction: column; align-items: center;
-    gap: .35rem;
-    padding-top: 1.5rem;
-    padding-bottom: .5rem;
-    font-size: .68rem;
-    font-weight: 800;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.5);
+    gap: .35rem; padding-top: 1.5rem; padding-bottom: .5rem;
+    font-size: .68rem; font-weight: 800; letter-spacing: .2em;
+    text-transform: uppercase; color: rgba(255,255,255,.5);
     animation: float 2s ease-in-out infinite;
   }
 
-  /* Responsivo */
-  @media (max-width: 600px) {
-    .grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
-<!-- ─── CLOUD BG ──────────────────────────────────────────── -->
 <div class="cloud-layer" id="clouds"></div>
-
-<!-- ─── SPARKLES ─────────────────────────────────────────── -->
 <div id="sparkles"></div>
 
-<!-- ─── HERO ──────────────────────────────────────────────── -->
+<!-- ─── HERO ──────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-badge">✦ Convocatoria de participación ✦</div>
-
   <div class="hero-title-wrap">
     <span class="hero-num">5.º</span>
     <div class="hero-main">
       Festival de <span class="accent">Arte</span> ESCOLARIS<span class="hero-year">2026</span>
     </div>
   </div>
-
   <p class="hero-tagline">"Entre luces y pantallas, museo sin muros"</p>
   <p class="hero-sub">Modalidad en línea · Instructivo por Categoría</p>
-
   <div class="scroll-hint">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
          stroke="rgba(255,255,255,.6)" stroke-width="2.5">
@@ -561,14 +446,14 @@
   </div>
 </section>
 
-<!-- ─── SECTION HEADER ────────────────────────────────────── -->
+<!-- ─── SECTION HEADER ────────────────────────────────── -->
 <div class="section-head">
-  <h2>Las <em>7 Categorías</em> del Festival</h2>
+  <h2>Las <em>8 Categorías</em> del Festival</h2>
   <p>Elige la que mejor exprese tu voz artística y créala con libertad</p>
   <div class="divider-gold"></div>
 </div>
 
-<!-- ─── CARDS GRID ────────────────────────────────────────── -->
+<!-- ─── CARDS GRID ──────────────────────────────────────── -->
 <div class="grid">
 
   <!-- 1 · Artes Visuales -->
@@ -579,28 +464,98 @@
       <div class="cat-meta">
         <span class="cat-num">Categoría 01</span>
         <div class="cat-name">Artes Visuales</div>
-        <div class="cat-sub">Dibujo · Pintura · Collage · Fotografía · Ilustración digital</div>
+        <div class="cat-sub">Tamaño máximo: 55 cm × 40 cm (obras físicas)</div>
       </div>
     </div>
     <div class="card-body">
+
       <div class="info-block">
-        <div class="info-label">¿Qué crear?</div>
-        <p class="info-text">Una obra visual <strong>original hecha por ti</strong>, en papel o digitalmente.</p>
+        <div class="info-label">Subcategorías — Toca para ver detalles</div>
+        <div class="subcat-list">
+
+          <div class="subcat-item">
+            <div class="subcat-header" onclick="toggleSub(this)">
+              ✏️ Dibujo Artístico <span class="arrow">▼</span>
+            </div>
+            <div class="subcat-body">
+              <ul>
+                <li>Lápiz</li>
+                <li>Carboncillo</li>
+                <li>Tinta</li>
+                <li>Rotulador</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="subcat-item">
+            <div class="subcat-header" onclick="toggleSub(this)">
+              🖌️ Pintura <span class="arrow">▼</span>
+            </div>
+            <div class="subcat-body">
+              <ul>
+                <li><strong>Técnicas Secas:</strong>
+                  <ul>
+                    <li>Lápiz grafito · Lápices de colores</li>
+                    <li>Rotuladores · Carboncillo · Collage</li>
+                  </ul>
+                </li>
+                <li><strong>Técnicas Húmedas:</strong>
+                  <ul>
+                    <li>Acuarela · Témpera · Óleo · Acrílico</li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="note">Indispensable: 2 fotos y/o video del proceso. Foto final sin flash, bien iluminada.</div>
+            </div>
+          </div>
+
+          <div class="subcat-item">
+            <div class="subcat-header" onclick="toggleSub(this)">
+              ✂️ Collage <span class="arrow">▼</span>
+            </div>
+            <div class="subcat-body">
+              <ul>
+                <li>Recortes de fotografías, telas, papel</li>
+                <li>Sobre cartón, papel o madera</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="subcat-item">
+            <div class="subcat-header" onclick="toggleSub(this)">
+              📷 Fotografía <span class="arrow">▼</span>
+            </div>
+            <div class="subcat-body">
+              <ul>
+                <li>Fotografía Digital · Fotografía Análoga · Fotomontaje</li>
+                <li>Enviar archivo original sin edición</li>
+                <li>Incluir parámetros: Abertura del diafragma, Velocidad de obturación, ISO</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="subcat-item">
+            <div class="subcat-header" onclick="toggleSub(this)">
+              💻 Ilustración Digital <span class="arrow">▼</span>
+            </div>
+            <div class="subcat-body">
+              <ul>
+                <li>Dibujo digital en tableta o computadora</li>
+                <li>Agregar capas de trabajo</li>
+              </ul>
+              <div class="note">🎵 Incluir video del proceso, puede ser tipo TikTok, máx. 45 segundos.</div>
+            </div>
+          </div>
+
+        </div><!-- /subcat-list -->
       </div>
-      <div class="info-block">
-        <div class="info-label">¿Cómo hacerla?</div>
-        <div class="tag-list">
-          <span class="tag">📸 Fotografía del proceso</span>
-          <span class="tag">⚡ Video time-lapse</span>
-          <span class="tag">🖼️ Alta calidad digital</span>
-          <span class="tag">☀️ Buena iluminación</span>
-        </div>
-      </div>
+
       <div class="info-block">
         <div class="info-label">Formatos de entrega</div>
         <div class="tag-list">
           <span class="tag format">JPG · PNG</span>
-          <span class="tag format">MP3 · MP4 · WAV</span>
+          <span class="tag format">MP4</span>
+          <span class="tag tiktok">🎵 TikTok proceso ≤ 45 seg</span>
         </div>
       </div>
       <div class="info-block">
@@ -649,9 +604,10 @@
       </div>
       <div class="info-block">
         <div class="info-label">Duración &amp; Formato</div>
-        <div class="duration-badge">⏱ 1 – 3 minutos</div>
+        <div class="duration-badge">⏱ 1 – 2 minutos</div>
         <div class="tag-list" style="margin-top:.5rem">
           <span class="tag format">Video MP4</span>
+          <span class="tag tiktok">📤 Subir a YouTube (público · HD)</span>
         </div>
       </div>
     </div>
@@ -691,6 +647,7 @@
         <div class="duration-badge">⏱ 30 seg – 2 min</div>
         <div class="tag-list" style="margin-top:.5rem">
           <span class="tag format">MP4</span>
+          <span class="tag tiktok">📤 Subir a YouTube (público · HD)</span>
         </div>
       </div>
     </div>
@@ -731,9 +688,10 @@
       </div>
       <div class="info-block">
         <div class="info-label">Duración &amp; Formato</div>
-        <div class="duration-badge">⏱ 1 – 3 minutos</div>
+        <div class="duration-badge">⏱ 1 – 2 minutos</div>
         <div class="tag-list" style="margin-top:.5rem">
           <span class="tag format">Video MP4</span>
+          <span class="tag tiktok">📤 Subir a YouTube (público · HD)</span>
         </div>
       </div>
     </div>
@@ -772,7 +730,7 @@
       </div>
       <div class="info-block">
         <div class="info-label">Duración &amp; Formato</div>
-        <div class="duration-badge">⏱ 1 – 3 minutos</div>
+        <div class="duration-badge">⏱ 1 – 2 minutos</div>
         <div class="tag-list" style="margin-top:.5rem">
           <span class="tag format">MP3 · WAV</span>
         </div>
@@ -808,7 +766,7 @@
         <div class="info-label">Formatos</div>
         <div class="tag-list">
           <span class="tag format">JPG · PNG (proceso)</span>
-          <span class="tag format">MP4 (time-lapse)</span>
+          <span class="tag tiktok">🎵 TikTok proceso ≤ 45 seg (MP4)</span>
         </div>
       </div>
     </div>
@@ -844,6 +802,49 @@
           <span class="tag format">Video</span>
           <span class="tag format">Multimedia interactivo</span>
           <span class="tag format">Enlace digital</span>
+          <span class="tag tiktok">📤 Subir a YouTube (público · HD)</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 8 · Escultura (NUEVA) -->
+  <article class="card c8">
+    <div class="card-frame-top"></div>
+    <div class="card-header">
+      <div class="cat-icon">🗿</div>
+      <div class="cat-meta">
+        <span class="cat-num">Categoría 08 · Nueva</span>
+        <div class="cat-name">Escultura</div>
+        <div class="cat-sub">Obras tridimensionales con distintos materiales</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="info-block">
+        <div class="info-label">Materiales permitidos</div>
+        <div class="tag-list">
+          <span class="tag">🏺 Arcilla</span>
+          <span class="tag">🎨 Plastilina</span>
+          <span class="tag">🪵 Madera</span>
+          <span class="tag">⚙️ Metal</span>
+          <span class="tag">♻️ Materiales Reciclados</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Documentación del proceso</div>
+        <div class="tag-list">
+          <span class="tag tiktok">🎵 Video proceso tipo TikTok · máx. 45 seg</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Debe incluir</div>
+        <div class="tag-list">
+          <span class="tag">Título</span>
+          <span class="tag">Tu nombre</span>
+          <span class="tag">Grado</span>
+          <span class="tag">Categoría</span>
+          <span class="tag">Explicación ≤ 100 palabras</span>
+          <span class="tag">Eje temático</span>
         </div>
       </div>
     </div>
@@ -851,14 +852,16 @@
 
 </div><!-- /grid -->
 
-<!-- ─── DATOS OBLIGATORIOS ────────────────────────────────── -->
+<!-- ─── DATOS OBLIGATORIOS ──────────────────────────────── -->
 <div class="section-head">
-  <h2>Datos <em>Obligatorios</em></h2>
-  <p>Cada obra debe enviarse con la siguiente información</p>
+  <h2>Datos <em>Obligatorios</em> e Información</h2>
+  <p>Todo lo que necesitas saber para participar correctamente</p>
   <div class="divider-gold"></div>
 </div>
 
 <section class="datos-wrap">
+
+  <!-- Campos obligatorios -->
   <div class="datos-card">
     <div class="datos-header">
       <span style="font-size:2rem">📋</span>
@@ -876,9 +879,117 @@
       <div class="dato-item"><div class="dato-num">6</div><span class="dato-text">Eje temático</span></div>
     </div>
   </div>
+
+  <!-- Notas técnicas -->
+  <div class="datos-card">
+    <div class="datos-header">
+      <span style="font-size:2rem">📌</span>
+      <div>
+        <h3>Notas Técnicas por Tipo de Obra</h3>
+        <p>Requisitos específicos según la disciplina</p>
+      </div>
+    </div>
+    <div style="padding:1.5rem 2rem; display:flex; flex-direction:column; gap:1rem;">
+      <div class="info-box">
+        <h4>🖼️ Obras Pictóricas (Pintura)</h4>
+        <ul>
+          <li>Formato horizontal o vertical, cualquier técnica mencionada.</li>
+          <li>Enviar <strong>mínimo 2 fotografías y/o video</strong> del proceso.</li>
+          <li>Foto final: <strong>sin flash</strong>, en ambiente bien iluminado.</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>📷 Fotografías</h4>
+        <ul>
+          <li>Enviar el <strong>archivo original sin edición</strong>.</li>
+          <li>Adjuntar parámetros: <strong>ISO, Velocidad de obturación y Profundidad de campo</strong>.</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>🎬 Videos (todas las categorías de video)</h4>
+        <ul>
+          <li>Presentar en <strong>formato horizontal</strong>.</li>
+          <li>Subir a <strong>YouTube como video público</strong> en calidad HD.</li>
+          <li>En el Padlet colocar: nombre del estudiante, grado y nombre de la obra.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Participantes -->
+  <div class="datos-card">
+    <div class="datos-header">
+      <span style="font-size:2rem">👩‍🎨</span>
+      <div>
+        <h3>Participantes y Proceso de Inscripción</h3>
+        <p>¿Quién puede participar y cómo?</p>
+      </div>
+    </div>
+    <div style="padding:1.5rem 2rem; display:flex; flex-direction:column; gap:1rem;">
+      <div class="info-box green-box">
+        <h4 class="green">✅ ¿Quién puede participar?</h4>
+        <ul>
+          <li>Todos los <strong>estudiantes activos</strong> de la comunidad Escolaris.</li>
+          <li>Niveles: <strong>Primaria, Secundaria y Madurez</strong>.</li>
+          <li>Cada estudiante puede participar con <strong>máximo 5 obras por categoría</strong>.</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>📝 Inscripción</h4>
+        <ul>
+          <li>Se habilitará un <strong>formulario de Google</strong> con la ficha de inscripción por categoría.</li>
+          <li>Desde ese formulario se subirán las propuestas artísticas.</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>⭐ Evaluación</h4>
+        <ul>
+          <li>Una <strong>terna evaluadora</strong> revisará cada obra según su categoría.</li>
+        </ul>
+      </div>
+      <div class="info-box warning-box">
+        <h4 class="orange">🤖 Política sobre Inteligencia Artificial</h4>
+        <p>Si se detecta uso de IA en la creación de una obra, se realizará una investigación. De confirmarse, la obra será <strong>automáticamente descalificada</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Criterios de participación -->
+  <div class="datos-card">
+    <div class="datos-header">
+      <span style="font-size:2rem">🌟</span>
+      <div>
+        <h3>Criterios de Participación y Contenido</h3>
+        <p>Para un festival respetuoso y celebratorio de toda la comunidad</p>
+      </div>
+    </div>
+    <div class="criterios-grid">
+      <div class="criterio-card">
+        <div class="criterio-icon">🧒</div>
+        <div class="criterio-title">Contenido Apropiado</div>
+        <div class="criterio-text">Las obras deben ser aptas para todos los públicos, incluyendo niños y adolescentes. No se aceptan desnudos, lenguaje inapropiado ni violencia.</div>
+      </div>
+      <div class="criterio-card">
+        <div class="criterio-icon">🤝</div>
+        <div class="criterio-title">Respeto y Diversidad</div>
+        <div class="criterio-text">Las obras deben respetar la diversidad de opiniones, creencias y culturas. No se permitirá incitar al odio, la discriminación o la intolerancia.</div>
+      </div>
+      <div class="criterio-card">
+        <div class="criterio-icon">💡</div>
+        <div class="criterio-title">Originalidad</div>
+        <div class="criterio-text">Las obras deben ser originales y de autoría del estudiante. Se valora la creatividad y la expresión personal y auténtica.</div>
+      </div>
+      <div class="criterio-card">
+        <div class="criterio-icon">🏆</div>
+        <div class="criterio-title">Calidad Técnica</div>
+        <div class="criterio-text">Se espera calidad técnica adecuada considerando las posibilidades de cada disciplina y los medios disponibles para la presentación en línea.</div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
-<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
 <footer>
   <div class="footer-logo"><span>Colegio</span> Escolaris</div>
   <div class="footer-line"></div>
@@ -886,34 +997,23 @@
   <div class="footer-tag">"Entre luces y pantallas, museo sin muros" · 28 de abril 2026</div>
 </footer>
 
-<!-- ─── SCRIPTS ───────────────────────────────────────────── -->
+<!-- ─── SCRIPTS ──────────────────────────────────────────── -->
 <script>
-// ── Clouds ──────────────────────────────────────────────────
+// Clouds
 (function(){
   const layer = document.getElementById('clouds');
-  const configs = [
-    {w:260,h:90,top:'8%',dur:38,delay:0,opacity:.6},
-    {w:180,h:65,top:'20%',dur:52,delay:-15,opacity:.45},
-    {w:320,h:100,top:'5%',dur:44,delay:-28,opacity:.5},
-    {w:140,h:55,top:'35%',dur:60,delay:-8,opacity:.35},
-    {w:200,h:75,top:'15%',dur:34,delay:-40,opacity:.55},
-    {w:100,h:42,top:'28%',dur:48,delay:-22,opacity:.3},
-  ];
-  configs.forEach(c => {
+  [{w:260,h:90,top:'8%',dur:38,delay:0,o:.6},{w:180,h:65,top:'20%',dur:52,delay:-15,o:.45},
+   {w:320,h:100,top:'5%',dur:44,delay:-28,o:.5},{w:140,h:55,top:'35%',dur:60,delay:-8,o:.35},
+   {w:200,h:75,top:'15%',dur:34,delay:-40,o:.55},{w:100,h:42,top:'28%',dur:48,delay:-22,o:.3}]
+  .forEach(c => {
     const el = document.createElement('div');
     el.className = 'cloud';
-    el.style.cssText = `
-      width:${c.w}px; height:${c.h}px;
-      top:${c.top};
-      animation-duration:${c.dur}s;
-      animation-delay:${c.delay}s;
-      opacity:${c.opacity};
-    `;
+    el.style.cssText = `width:${c.w}px;height:${c.h}px;top:${c.top};animation-duration:${c.dur}s;animation-delay:${c.delay}s;opacity:${c.o};`;
     layer.appendChild(el);
   });
 })();
 
-// ── Sparkles ────────────────────────────────────────────────
+// Sparkles
 (function(){
   const container = document.getElementById('sparkles');
   const chars = ['✦','✧','★','✩','⭐','💫'];
@@ -921,26 +1021,26 @@
     const el = document.createElement('div');
     el.className = 'sparkle';
     el.textContent = chars[Math.floor(Math.random()*chars.length)];
-    el.style.cssText = `
-      left:${Math.random()*100}vw;
-      top:${Math.random()*80}vh;
-      animation-duration:${2.5+Math.random()*3.5}s;
-      animation-delay:${Math.random()*4}s;
-      font-size:${.7+Math.random()*.8}rem;
-      color:${Math.random()>.5?'rgba(245,200,66,.6)':'rgba(232,98,10,.45)'};
-    `;
+    el.style.cssText = `left:${Math.random()*100}vw;top:${Math.random()*80}vh;animation-duration:${2.5+Math.random()*3.5}s;animation-delay:${Math.random()*4}s;font-size:${.7+Math.random()*.8}rem;color:${Math.random()>.5?'rgba(245,200,66,.6)':'rgba(232,98,10,.45)'};`;
     container.appendChild(el);
   }
 })();
 
-// ── Scroll reveal ────────────────────────────────────────────
+// Scroll reveal
 const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-  });
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, {threshold:.08});
-
 document.querySelectorAll('.card').forEach(c => io.observe(c));
+
+// Accordion subcategorías
+function toggleSub(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  // Close all in same card
+  header.closest('.subcat-list').querySelectorAll('.subcat-body').forEach(b => b.classList.remove('open'));
+  header.closest('.subcat-list').querySelectorAll('.subcat-header').forEach(h => h.classList.remove('open'));
+  if(!isOpen){ body.classList.add('open'); header.classList.add('open'); }
+}
 </script>
 </body>
 </html>
